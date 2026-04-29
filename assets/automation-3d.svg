@@ -1,0 +1,24 @@
+<svg width="960" height="600" viewBox="0 0 960 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="960" height="600" rx="28" fill="#2B2D57"/>
+  <path d="M180 430L330 350L480 430L330 510L180 430Z" fill="#3A3D6B"/>
+  <path d="M330 510L480 430V474L330 554V510Z" fill="#25274B"/>
+  <path d="M330 510L180 430V474L330 554V510Z" fill="#202243"/>
+
+  <path d="M390 332L540 252L690 332L540 412L390 332Z" fill="#A8ADCF"/>
+  <path d="M540 412L690 332V376L540 456V412Z" fill="#8E93B8"/>
+  <path d="M540 412L390 332V376L540 456V412Z" fill="#7A7FAA"/>
+
+  <path d="M600 232L750 152L900 232L750 312L600 232Z" fill="#F1F2FF"/>
+  <path d="M750 312L900 232V272L750 352V312Z" fill="#C5C9E8"/>
+  <path d="M750 312L600 232V272L750 352V312Z" fill="#A8ADCF"/>
+
+  <path d="M332 430L540 332" stroke="#F1F2FF" stroke-width="4" stroke-linecap="round"/>
+  <path d="M540 332L748 232" stroke="#F1F2FF" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="332" cy="430" r="8" fill="#F1F2FF"/>
+  <circle cx="540" cy="332" r="8" fill="#F1F2FF"/>
+  <circle cx="748" cy="232" r="8" fill="#F1F2FF"/>
+
+  <rect x="120" y="112" width="240" height="72" rx="16" fill="#34365F" stroke="#A8ADCF"/>
+  <text x="146" y="156" fill="#F1F2FF" font-family="Arial, sans-serif" font-size="26" font-weight="700">Automation</text>
+  <text x="122" y="84" fill="#C5C9E8" font-family="Arial, sans-serif" font-size="22">Event to action orchestration</text>
+</svg>

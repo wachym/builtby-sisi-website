@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Built By Sisi — bespoke software engineering. We design and ship reliable products, platforms, and integrations for teams who care about craft."
+    />
+    <meta name="theme-color" content="#2b2d57" />
+    <meta name="color-scheme" content="light" />
+
+    <meta property="og:title" content="Built By Sisi — Software Engineering Studio" />
+    <meta
+      property="og:description"
+      content="Thoughtful engineering for serious products. We design, build, and evolve software that stays fast, maintainable, and aligned with your business."
+    />
+    <meta property="og:type" content="website" />
+    <title>Built By Sisi — Software Engineering Studio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header" data-header>
+      <div class="container header__inner">
+        <a class="logo" href="#top" aria-label="Built By Sisi home">
+          <img class="logo__image" src="BBS.png" alt="Built By Sisi" width="150" height="150" />
+        </a>
+        <nav class="nav" aria-label="Primary">
+          <button
+            type="button"
+            class="theme-toggle"
+            data-theme-toggle
+            aria-label="Toggle dark mode"
+            title="Toggle dark mode"
+          >
+            <span class="theme-toggle__icon" aria-hidden="true">◐</span>
+          </button>
+          <button
+            type="button"
+            class="nav__toggle"
+            aria-expanded="false"
+            aria-controls="nav-menu"
+            data-nav-toggle
+          >
+            <span class="nav__toggle-bar"></span>
+            <span class="visually-hidden">Menu</span>
+          </button>
+          <ul id="nav-menu" class="nav__list" data-nav-menu>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#work">Work</a></li>
+            <li><a href="#process">Process</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a class="nav__cta" href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <section id="top" class="hero">
+        <div class="hero__glow" aria-hidden="true"></div>
+        <div class="container hero__grid">
+          <div class="hero__copy">
+            <p class="eyebrow reveal" data-reveal>Software studio</p>
+            <h1 class="hero__title reveal" data-reveal>
+              Thoughtful engineering<br />
+              <em>for serious products.</em>
+            </h1>
+            <p class="hero__lead reveal" data-reveal>
+              We partner with founders and teams to design, build, and evolve
+              software that stays fast, maintainable, and aligned with your
+              business—without the noise.
+            </p>
+            <div class="hero__actions reveal" data-reveal>
+              <a class="btn btn--primary" href="#contact">Start a conversation</a>
+              <a class="btn btn--ghost" href="#services">Explore services</a>
+            </div>
+
+            <div class="trust reveal" data-reveal aria-label="Trusted by">
+              <p class="trust__label">Trusted by teams shipping real software</p>
+              <div class="trust__row" role="list">
+                <span class="trust__logo" role="listitem">Fintech</span>
+                <span class="trust__logo" role="listitem">SaaS</span>
+                <span class="trust__logo" role="listitem">E-commerce</span>
+                <span class="trust__logo" role="listitem">Healthcare</span>
+              </div>
+            </div>
+          </div>
+          <aside class="hero__panel reveal" data-reveal aria-label="Highlights">
+            <ul class="hero__stats">
+              <li>
+                <span class="hero__stat-value">End-to-end</span>
+                <span class="hero__stat-label">From discovery to production</span>
+              </li>
+              <li>
+                <span class="hero__stat-value">Quality-first</span>
+                <span class="hero__stat-label">Tests, reviews, observability</span>
+              </li>
+              <li>
+                <span class="hero__stat-value">Clear comms</span>
+                <span class="hero__stat-label">Predictable delivery you can trust</span>
+              </li>
+            </ul>
+          </aside>
+        </div>
+      </section>
+
+      <section id="services" class="section section--services">
+        <div class="container">
+          <header class="section__head reveal" data-reveal>
+            <p class="eyebrow">What we do</p>
+            <h2 class="section__title">Capabilities built around your roadmap.</h2>
+            <p class="section__intro">
+              Whether you are launching something new or hardening what you
+              already run, we embed as an extension of your team.
+            </p>
+          </header>
+          <div class="cards" data-services>
+            <article class="card reveal is-active" data-reveal data-service="engineering" tabindex="0">
+              <span class="card__index">01</span>
+              <h3 class="card__title">Product &amp; platform engineering</h3>
+              <p class="card__text">
+                Web applications, APIs, and internal tools—architected for
+                clarity, performance, and long-term change.
+              </p>
+            </article>
+            <article class="card reveal" data-reveal data-service="cloud" tabindex="0">
+              <span class="card__index">02</span>
+              <h3 class="card__title">Cloud &amp; infrastructure</h3>
+              <p class="card__text">
+                Secure deployments, CI/CD, and environments that scale with you
+                without surprise bills or fragile scripts.
+              </p>
+            </article>
+            <article class="card reveal" data-reveal data-service="integrations" tabindex="0">
+              <span class="card__index">03</span>
+              <h3 class="card__title">Integrations &amp; data</h3>
+              <p class="card__text">
+                Connect systems, migrate legacy surfaces, and make data flows
+                observable so operations stay boring—in the best way.
+              </p>
+            </article>
+            <article class="card reveal" data-reveal data-service="direction" tabindex="0">
+              <span class="card__index">04</span>
+              <h3 class="card__title">Technical direction</h3>
+              <p class="card__text">
+                Pragmatic audits, roadmaps, and hands-on mentorship when you
+                need a steady senior voice in the room.
+              </p>
+            </article>
+          </div>
+          <aside class="service-spotlight reveal" data-reveal data-service-output aria-live="polite">
+            <p class="service-spotlight__eyebrow">Service spotlight</p>
+            <h3 class="service-spotlight__title">Product &amp; platform engineering</h3>
+            <p class="service-spotlight__text">
+              We design and build scalable product foundations with maintainable code, clear boundaries,
+              and reliable release workflows so teams can ship without fear.
+            </p>
+          </aside>
+        </div>
+      </section>
+
+      <section id="work" class="section section--work">
+        <div class="container">
+          <header class="section__head reveal" data-reveal>
+            <p class="eyebrow">Selected work</p>
+            <h2 class="section__title">Elegant builds. Measurable outcomes.</h2>
+            <p class="section__intro">
+              A few example engagements to show how we think. Replace these with
+              your real case studies as you grow.
+            </p>
+          </header>
+
+          <div class="work">
+            <article class="work__item reveal" data-reveal>
+              <p class="work__tag">Platform</p>
+              <h3 class="work__title">Modernized a legacy app into a stable API-first platform</h3>
+              <ul class="work__bullets">
+                <li>Improved release confidence with tests + CI</li>
+                <li>Reduced operational toil with monitoring &amp; alerts</li>
+                <li>Created a roadmap that kept scope realistic</li>
+              </ul>
+              <button
+                class="work__link"
+                type="button"
+                data-project="platform"
+                aria-label="View project details for API-first platform"
+              >
+                View project details
+              </button>
+            </article>
+            <article class="work__item reveal" data-reveal>
+              <p class="work__tag">Integrations</p>
+              <h3 class="work__title">Connected systems with observable data flows</h3>
+              <ul class="work__bullets">
+                <li>Designed durable sync patterns and retries</li>
+                <li>Added tracing to make failures obvious</li>
+                <li>Documented ownership for handover</li>
+              </ul>
+              <button
+                class="work__link"
+                type="button"
+                data-project="integrations"
+                aria-label="View project details for integration systems"
+              >
+                View project details
+              </button>
+            </article>
+            <article class="work__item reveal" data-reveal>
+              <p class="work__tag">Product</p>
+              <h3 class="work__title">Shipped a polished MVP with a senior delivery rhythm</h3>
+              <ul class="work__bullets">
+                <li>Weekly increments with clear checkpoints</li>
+                <li>Performance-focused UI and accessible components</li>
+                <li>Production-ready deployment from day one</li>
+              </ul>
+              <button
+                class="work__link"
+                type="button"
+                data-project="mvp"
+                aria-label="View project details for polished MVP"
+              >
+                View project details
+              </button>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--showcase" aria-label="Software capability showcase">
+        <div class="container">
+          <header class="section__head reveal" data-reveal>
+            <p class="eyebrow">Capability showcase</p>
+            <h2 class="section__title">We design real product surfaces, not just slides.</h2>
+            <p class="section__intro">
+              Example visual directions we build for clients: product dashboards, platform architecture, and
+              mobile-ready execution views.
+            </p>
+          </header>
+
+          <div class="showcase" data-parallax-root>
+            <article class="showcase__item reveal" data-reveal data-tilt>
+              <span class="showcase__shine" aria-hidden="true"></span>
+              <img
+                src="assets/engineering-3d.svg"
+                alt="3D software product engineering visualization"
+                loading="lazy"
+                width="960"
+                height="600"
+              />
+              <div class="showcase__meta">
+                <h3>Product Engineering Systems</h3>
+                <p>We design connected product surfaces across frontend, services, and deployment layers.</p>
+              </div>
+            </article>
+
+            <article class="showcase__item reveal" data-reveal data-tilt>
+              <span class="showcase__shine" aria-hidden="true"></span>
+              <img
+                src="assets/automation-3d.svg"
+                alt="3D automation and workflow orchestration visualization"
+                loading="lazy"
+                width="960"
+                height="600"
+              />
+              <div class="showcase__meta">
+                <h3>Automation &amp; AI Workflows</h3>
+                <p>From business events to actions, we automate repeatable operations with resilient flow control.</p>
+              </div>
+            </article>
+
+            <article class="showcase__item reveal" data-reveal data-tilt>
+              <span class="showcase__shine" aria-hidden="true"></span>
+              <img
+                src="assets/platform-3d.svg"
+                alt="3D cloud platform and observability visualization"
+                loading="lazy"
+                width="960"
+                height="600"
+              />
+              <div class="showcase__meta">
+                <h3>Cloud Platform Capability</h3>
+                <p>Scalable cloud architecture, observability, and release confidence designed into the platform.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--capability-wall" aria-label="Capability gallery">
+        <div class="container">
+          <header class="section__head reveal" data-reveal>
+            <p class="eyebrow">Inside the build</p>
+            <h2 class="section__title">From concept to production architecture.</h2>
+          </header>
+          <div class="capability-wall">
+            <article class="cap-card cap-card--wide reveal" data-reveal>
+              <img src="assets/engineering-3d.svg" alt="3D software systems composition" loading="lazy" />
+              <div class="cap-card__overlay">
+                <h3>Full-stack Product Delivery</h3>
+                <p>UX, frontend, backend, data, and release systems built as one coherent product engine.</p>
+              </div>
+            </article>
+            <article class="cap-card reveal" data-reveal>
+              <img src="assets/automation-3d.svg" alt="3D automation orchestration concept" loading="lazy" />
+              <div class="cap-card__overlay">
+                <h3>Automation Pipelines</h3>
+              </div>
+            </article>
+            <article class="cap-card reveal" data-reveal>
+              <img src="assets/platform-3d.svg" alt="3D cloud platform concept" loading="lazy" />
+              <div class="cap-card__overlay">
+                <h3>Cloud Reliability Architecture</h3>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="process" class="section section--process">
+        <div class="container process">
+          <header class="section__head reveal" data-reveal>
+            <p class="eyebrow">How we work</p>
+            <h2 class="section__title">A calm, deliberate delivery rhythm.</h2>
+          </header>
+          <ol class="process__steps">
+            <li class="process__step reveal" data-reveal>
+              <span class="process__num">1</span>
+              <div>
+                <h3>Align</h3>
+                <p>
+                  We clarify outcomes, constraints, and success metrics so scope
+                  matches reality—not slides.
+                </p>
+              </div>
+            </li>
+            <li class="process__step reveal" data-reveal>
+              <span class="process__num">2</span>
+              <div>
+                <h3>Shape</h3>
+                <p>
+                  Thin slices of design and engineering de-risk the unknown early,
+                  with visible increments you can react to.
+                </p>
+              </div>
+            </li>
+            <li class="process__step reveal" data-reveal>
+              <span class="process__num">3</span>
+              <div>
+                <h3>Ship</h3>
+                <p>
+                  Production releases with monitoring, docs, and handover so your
+                  team owns the result with confidence.
+                </p>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section id="about" class="section section--about">
+        <div class="container about">
+          <div class="about__copy reveal" data-reveal>
+            <p class="eyebrow">About</p>
+            <h2 class="section__title">Built By Sisi</h2>
+            <p>
+              We are a software company focused on craft: readable code, honest
+              timelines, and interfaces that respect the people who use them.
+              Our clients range from early-stage startups to established teams
+              modernizing critical systems.
+            </p>
+            <p>
+              If you value precision over hype, we would love to hear what you
+              are building.
+            </p>
+          </div>
+          <blockquote class="about__quote reveal" data-reveal>
+            <p>
+              “Software should feel inevitable—simple surfaces hiding careful
+              work.”
+            </p>
+            <footer>— Built By Sisi</footer>
+          </blockquote>
+        </div>
+      </section>
+
+      <section class="section section--testimonials" aria-label="Testimonials">
+        <div class="container">
+          <header class="section__head reveal" data-reveal>
+            <p class="eyebrow">What teams say</p>
+            <h2 class="section__title">Trusted for clarity and follow-through.</h2>
+          </header>
+
+          <div class="testimonials">
+            <figure class="quote reveal" data-reveal>
+              <blockquote>
+                “A calm, senior partner—clear decisions, clean delivery, and no surprises.”
+              </blockquote>
+              <figcaption>Founder, product studio</figcaption>
+            </figure>
+            <figure class="quote reveal" data-reveal>
+              <blockquote>
+                “The codebase got simpler, our releases got safer, and the team leveled up.”
+              </blockquote>
+              <figcaption>Engineering lead, SaaS</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="section section--contact">
+        <div class="container contact">
+          <div class="contact__inner reveal" data-reveal>
+            <p class="eyebrow">Contact</p>
+            <h2 class="section__title">Tell us about your next release.</h2>
+            <p class="contact__lead">
+              Share a few details and we will reply with next steps. (This is a
+              no-backend form that opens your email client.)
+            </p>
+            <form class="contact__form" data-contact-form>
+              <div class="field">
+                <label for="name">Name</label>
+                <input id="name" name="name" type="text" autocomplete="name" required />
+              </div>
+              <div class="field">
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" autocomplete="email" required />
+              </div>
+              <div class="field">
+                <label for="message">What are you building?</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+              </div>
+              <div class="contact__actions">
+                <button class="btn btn--primary btn--large" type="submit">Send message</button>
+                <a class="btn btn--ghost btn--large" href="mailto:builtbysisi@gmail.com">Email instead</a>
+              </div>
+              <p class="contact__fineprint">
+                Prefer email? Reach us at
+                <a href="mailto:builtbysisi@gmail.com">builtbysisi@gmail.com</a>.
+              </p>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer__inner">
+        <p class="footer__brand">Built By Sisi</p>
+        <p class="footer__meta">
+          © <span data-year></span> Built By Sisi. All rights reserved.
+        </p>
+      </div>
+    </footer>
+
+    <dialog class="project-modal" data-project-modal>
+      <article class="project-modal__card" role="document">
+        <button type="button" class="project-modal__close" data-project-close aria-label="Close project details">
+          ×
+        </button>
+        <p class="project-modal__tag" data-project-tag></p>
+        <h3 class="project-modal__title" data-project-title></h3>
+        <p class="project-modal__summary" data-project-summary></p>
+        <ul class="project-modal__points" data-project-points></ul>
+      </article>
+    </dialog>
+
+    <script src="main.js" defer></script>
+  </body>
+</html>
