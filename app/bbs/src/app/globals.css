@@ -167,6 +167,7 @@ a {
   inset: 0 0 auto;
   z-index: 100;
   height: var(--header-h);
+  padding-top: env(safe-area-inset-top, 0);
   display: flex;
   align-items: center;
   background: rgba(43, 45, 87, 0.85);
@@ -1373,5 +1374,120 @@ body[data-theme="dark"] .trust__logo {
     opacity: 1;
     transform: none;
     transition: none;
+  }
+}
+
+/* PWA offline fallback */
+.offline-page {
+  min-height: 100dvh;
+  display: grid;
+  place-items: center;
+  padding: var(--space-lg);
+}
+
+.offline-page__card {
+  width: min(420px, 100%);
+  text-align: center;
+  padding: var(--space-xl);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-card);
+  box-shadow: var(--shadow-md);
+}
+
+.offline-page__logo {
+  margin-inline: auto;
+  margin-bottom: var(--space-md);
+  border-radius: var(--radius-md);
+}
+
+.offline-page__eyebrow {
+  margin: 0 0 var(--space-xs);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.offline-page__title {
+  margin: 0 0 var(--space-sm);
+  font-family: var(--font-serif);
+  font-size: 1.75rem;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+}
+
+.offline-page__text {
+  margin: 0 0 var(--space-lg);
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.offline-page__btn {
+  width: 100%;
+}
+
+.offline-page__hint {
+  margin: var(--space-md) 0 0;
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+}
+
+/* PWA install prompt */
+.install-prompt {
+  position: fixed;
+  inset: auto var(--space-sm) calc(var(--space-sm) + env(safe-area-inset-bottom, 0));
+  z-index: 200;
+  max-width: 22rem;
+  margin-inline: auto;
+  left: 0;
+  right: 0;
+}
+
+@media (min-width: 640px) {
+  .install-prompt {
+    inset: auto var(--space-md) var(--space-md) auto;
+    left: auto;
+    margin-inline: 0;
+  }
+}
+
+.install-prompt__inner {
+  padding: var(--space-md);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-strong);
+  background: rgba(52, 54, 95, 0.96);
+  backdrop-filter: blur(12px);
+  box-shadow: var(--shadow-md);
+}
+
+.install-prompt__title {
+  margin: 0 0 0.35rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.install-prompt__text {
+  margin: 0 0 var(--space-sm);
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.install-prompt__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.install-prompt__actions .btn {
+  flex: 1 1 auto;
+  min-width: 6.5rem;
+}
+
+@media (display-mode: standalone) {
+  .install-prompt {
+    display: none;
   }
 }
