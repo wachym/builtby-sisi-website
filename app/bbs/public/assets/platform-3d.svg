@@ -1,0 +1,22 @@
+<svg width="960" height="600" viewBox="0 0 960 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="960" height="600" rx="28" fill="#2B2D57"/>
+  <path d="M110 448L290 350L470 448L290 546L110 448Z" fill="#3A3D6B"/>
+  <path d="M290 546L470 448V500L290 598V546Z" fill="#25274B"/>
+  <path d="M290 546L110 448V500L290 598V546Z" fill="#202243"/>
+
+  <path d="M320 376L500 278L680 376L500 474L320 376Z" fill="#A8ADCF"/>
+  <path d="M500 474L680 376V428L500 526V474Z" fill="#8E93B8"/>
+  <path d="M500 474L320 376V428L500 526V474Z" fill="#7A7FAA"/>
+
+  <path d="M530 304L710 206L890 304L710 402L530 304Z" fill="#F1F2FF"/>
+  <path d="M710 402L890 304V356L710 454V402Z" fill="#C5C9E8"/>
+  <path d="M710 402L530 304V356L710 454V402Z" fill="#A8ADCF"/>
+
+  <path d="M292 448L500 376L710 304" stroke="#F1F2FF" stroke-width="4" stroke-linecap="round" stroke-dasharray="6 10"/>
+  <circle cx="292" cy="448" r="8" fill="#F1F2FF"/>
+  <circle cx="500" cy="376" r="8" fill="#F1F2FF"/>
+  <circle cx="710" cy="304" r="8" fill="#F1F2FF"/>
+
+  <text x="90" y="88" fill="#F1F2FF" font-family="Arial, sans-serif" font-size="36" font-weight="700">Cloud Platform</text>
+  <text x="90" y="126" fill="#C5C9E8" font-family="Arial, sans-serif" font-size="22">Scale, reliability, observability, security</text>
+</svg>

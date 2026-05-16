@@ -1,0 +1,24 @@
+<svg width="960" height="600" viewBox="0 0 960 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="960" height="600" rx="28" fill="#0B1224"/>
+  <rect x="32" y="32" width="896" height="536" rx="20" fill="#101A33" stroke="#243251"/>
+  <rect x="96" y="120" width="180" height="88" rx="14" fill="#1D4ED8"/>
+  <rect x="390" y="88" width="180" height="88" rx="14" fill="#0EA5E9"/>
+  <rect x="684" y="120" width="180" height="88" rx="14" fill="#6366F1"/>
+  <rect x="390" y="248" width="180" height="88" rx="14" fill="#7C3AED"/>
+  <rect x="96" y="392" width="180" height="88" rx="14" fill="#2563EB"/>
+  <rect x="390" y="392" width="180" height="88" rx="14" fill="#0EA5E9"/>
+  <rect x="684" y="392" width="180" height="88" rx="14" fill="#4F46E5"/>
+  <path d="M276 164H390" stroke="#93C5FD" stroke-width="4" stroke-linecap="round"/>
+  <path d="M570 164H684" stroke="#93C5FD" stroke-width="4" stroke-linecap="round"/>
+  <path d="M480 176V248" stroke="#C4B5FD" stroke-width="4" stroke-linecap="round"/>
+  <path d="M480 336V392" stroke="#C4B5FD" stroke-width="4" stroke-linecap="round"/>
+  <path d="M186 208V392" stroke="#60A5FA" stroke-width="4" stroke-linecap="round" stroke-dasharray="7 9"/>
+  <path d="M774 208V392" stroke="#60A5FA" stroke-width="4" stroke-linecap="round" stroke-dasharray="7 9"/>
+  <text x="132" y="171" fill="#E2E8F0" font-family="Arial, sans-serif" font-size="20" font-weight="700">Client App</text>
+  <text x="421" y="139" fill="#E2E8F0" font-family="Arial, sans-serif" font-size="20" font-weight="700">API Gateway</text>
+  <text x="716" y="171" fill="#E2E8F0" font-family="Arial, sans-serif" font-size="20" font-weight="700">Auth Layer</text>
+  <text x="434" y="299" fill="#F5F3FF" font-family="Arial, sans-serif" font-size="20" font-weight="700">Event Bus</text>
+  <text x="130" y="443" fill="#E2E8F0" font-family="Arial, sans-serif" font-size="20" font-weight="700">Workers</text>
+  <text x="441" y="443" fill="#E2E8F0" font-family="Arial, sans-serif" font-size="20" font-weight="700">Datastore</text>
+  <text x="724" y="443" fill="#E2E8F0" font-family="Arial, sans-serif" font-size="20" font-weight="700">Observability</text>
+</svg>

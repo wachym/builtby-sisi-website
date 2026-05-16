@@ -1,0 +1,19 @@
+<svg width="960" height="600" viewBox="0 0 960 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="960" height="600" rx="28" fill="#0A1020"/>
+  <rect x="38" y="38" width="884" height="524" rx="20" fill="#101A33" stroke="#243251"/>
+  <rect x="120" y="86" width="260" height="430" rx="34" fill="#0D152A" stroke="#334155"/>
+  <rect x="150" y="134" width="200" height="40" rx="14" fill="#2563EB"/>
+  <rect x="150" y="190" width="200" height="96" rx="16" fill="#1E293B"/>
+  <rect x="150" y="300" width="94" height="94" rx="14" fill="#1D4ED8"/>
+  <rect x="256" y="300" width="94" height="94" rx="14" fill="#4F46E5"/>
+  <rect x="150" y="406" width="200" height="74" rx="14" fill="#0EA5E9"/>
+  <rect x="430" y="86" width="410" height="430" rx="20" fill="#0D152A" stroke="#334155"/>
+  <rect x="460" y="122" width="350" height="18" rx="9" fill="#E2E8F0"/>
+  <rect x="460" y="162" width="280" height="12" rx="6" fill="#64748B"/>
+  <rect x="460" y="210" width="350" height="120" rx="14" fill="#111E3A"/>
+  <path d="M484 292C520 248 554 280 592 240C626 206 660 220 700 188C724 170 748 172 786 188" stroke="#22D3EE" stroke-width="4" stroke-linecap="round"/>
+  <rect x="460" y="352" width="350" height="32" rx="10" fill="#1E293B"/>
+  <rect x="460" y="396" width="320" height="12" rx="6" fill="#475569"/>
+  <rect x="460" y="420" width="300" height="12" rx="6" fill="#475569"/>
+  <rect x="460" y="444" width="266" height="12" rx="6" fill="#475569"/>
+</svg>
