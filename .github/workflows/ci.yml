@@ -107,7 +107,9 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: "22"
+          # Must match the npm major the lock was generated with: npm 10 and 11
+          # produce incompatible locks for this dependency set.
+          node-version: "24"
           cache: npm
           cache-dependency-path: app/bbs/package-lock.json
 
