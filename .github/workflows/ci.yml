@@ -1,0 +1,137 @@
+name: CI
+
+# Two runtimes, one system. The backend job proves the ledger's guarantees on
+# the engine production uses; the frontend job proves the generated client
+# still matches the backend's schema. A change that would break the other side
+# fails here rather than in a browser.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  backend:
+    name: Backend (Django ${{ matrix.python-version }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.12"]
+
+    services:
+      postgres:
+        image: pgvector/pgvector:pg17
+        env:
+          POSTGRES_USER: sisi
+          POSTGRES_PASSWORD: sisi
+          POSTGRES_DB: sisi
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd "pg_isready -U sisi -d sisi"
+          --health-interval 5s
+          --health-timeout 3s
+          --health-retries 10
+
+    defaults:
+      run:
+        working-directory: backend
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+          cache-dependency-path: backend/requirements-dev.txt
+
+      - name: Install dependencies
+        run: python -m pip install -r requirements-dev.txt
+
+      - name: Tests
+        run: python -m pytest
+
+      - name: Migrations apply cleanly on PostgreSQL
+        env:
+          DJANGO_SETTINGS_MODULE: bbsbackend.settings.dev
+          DATABASE_URL: postgres://sisi:sisi@localhost:5432/sisi
+        run: |
+          python manage.py migrate --noinput
+          python manage.py makemigrations --check --dry-run
+
+      - name: Ledger verifies on PostgreSQL
+        env:
+          DJANGO_SETTINGS_MODULE: bbsbackend.settings.dev
+          DATABASE_URL: postgres://sisi:sisi@localhost:5432/sisi
+        run: |
+          python manage.py ledger_demo
+          python manage.py ledger_verify --signatures
+
+      - name: Production settings refuse an unsafe configuration
+        env:
+          DJANGO_SETTINGS_MODULE: bbsbackend.settings.prod
+          DJANGO_ALLOWED_HOSTS: api.example.com
+          DATABASE_URL: postgres://sisi:sisi@localhost:5432/sisi
+          LEDGER_REQUIRE_SIGNATURES: "true"
+        run: |
+          # Generated per run: a weak key would fail the check for the wrong reason.
+          export DJANGO_SECRET_KEY="$(python -c 'import secrets; print(secrets.token_urlsafe(64))')"
+          python manage.py check --deploy --fail-level WARNING
+
+      - name: Export the API contract
+        env:
+          DJANGO_SETTINGS_MODULE: bbsbackend.settings.dev
+        run: python manage.py export_openapi -o openapi.json
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: openapi
+          path: backend/openapi.json
+
+  frontend:
+    name: Frontend (Next)
+    runs-on: ubuntu-latest
+    needs: backend
+
+    defaults:
+      run:
+        working-directory: app/bbs
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: app/bbs/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - uses: actions/download-artifact@v4
+        with:
+          name: openapi
+          path: backend
+
+      - name: Regenerate the typed client from the backend schema
+        run: npm run api:types
+
+      - name: The committed client must match the backend
+        # If this fails, the backend changed and the frontend types did not.
+        # Run `npm run api:types` locally and commit the result.
+        run: git diff --exit-code -- src/lib/api/schema.d.ts
+
+      - name: Typecheck
+        run: npx tsc --noEmit
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Build
+        run: npm run build
