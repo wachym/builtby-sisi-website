@@ -21,12 +21,6 @@ export function InstallPrompt() {
     if (localStorage.getItem(DISMISS_KEY) === "1") return;
     if (window.matchMedia("(display-mode: standalone)").matches) return;
 
-    const ua = window.navigator.userAgent;
-    const ios =
-      /iPad|iPhone|iPod/.test(ua) ||
-      (ua.includes("Mac") && "ontouchend" in document);
-    setIsIos(ios);
-
     const onBeforeInstall = (e: Event) => {
       e.preventDefault();
       setDeferredPrompt(e as BeforeInstallPromptEvent);
@@ -35,6 +29,14 @@ export function InstallPrompt() {
     window.addEventListener("beforeinstallprompt", onBeforeInstall);
 
     const showTimer = window.setTimeout(() => {
+      // Platform detection happens here rather than in the effect body: the
+      // value is only needed once the prompt is shown, and setting it up front
+      // would cascade a render before anything is visible.
+      const ua = window.navigator.userAgent;
+      setIsIos(
+        /iPad|iPhone|iPod/.test(ua) ||
+          (ua.includes("Mac") && "ontouchend" in document),
+      );
       setVisible(true);
     }, 4500);
 

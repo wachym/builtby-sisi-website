@@ -44,6 +44,11 @@ export function useBbsSite({
     const initial = (stored === "dark" || stored === "light" ? stored : systemDark ? "dark" : "light") as
       | "light"
       | "dark";
+    // The stored and system preferences only exist in the browser, so they
+    // cannot seed useState without diverging from the server-rendered HTML.
+    // Reading them once on mount is the intended trade: one extra render in
+    // exchange for no hydration mismatch.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setTheme(initial);
     setThemeReady(true);
   }, []);
