@@ -86,12 +86,20 @@ def database_from_url(url: str, base_dir: Path, *, conn_max_age: int = 0) -> dic
     scheme = parsed.scheme.lower()
 
     if scheme in {"sqlite", "sqlite3"}:
+        # By convention sqlite:///name.db is relative and sqlite:////abs/path
+        # is absolute — the difference is one slash, so it is parsed here
+        # rather than left to chance.
         raw_path = url.split("://", 1)[1] if "://" in url else ""
-        raw_path = raw_path.lstrip("/") or "db.sqlite3"
-        if raw_path == ":memory:":
+        if raw_path.startswith("//"):
+            candidate_path = raw_path[1:]
+        else:
+            candidate_path = raw_path.lstrip("/")
+        candidate_path = candidate_path or "db.sqlite3"
+
+        if candidate_path == ":memory:":
             name: str | Path = ":memory:"
         else:
-            candidate = Path(raw_path)
+            candidate = Path(candidate_path)
             name = candidate if candidate.is_absolute() else base_dir / candidate
         return {"ENGINE": "django.db.backends.sqlite3", "NAME": str(name)}
 

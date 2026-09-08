@@ -14,27 +14,34 @@ in such a test if one is ever genuinely needed.
 
 from django.db import migrations
 
-POSTGRES_FORWARD = """
-CREATE OR REPLACE FUNCTION ledger_event_append_only() RETURNS trigger AS $$
-BEGIN
-    RAISE EXCEPTION 'ledger_event is append-only: % is not permitted', TG_OP;
-END;
-$$ LANGUAGE plpgsql;
+# One statement per execute() call: psycopg only accepts multiple commands in
+# a single call under the simple query protocol, and depending on it here
+# would be a subtle dependency on how the driver was invoked.
+POSTGRES_FORWARD = [
+    """
+    CREATE OR REPLACE FUNCTION ledger_event_append_only() RETURNS trigger AS $$
+    BEGIN
+        RAISE EXCEPTION 'ledger_event is append-only: % is not permitted', TG_OP;
+    END;
+    $$ LANGUAGE plpgsql;
+    """,
+    """
+    CREATE TRIGGER ledger_event_no_update
+        BEFORE UPDATE ON ledger_event
+        FOR EACH ROW EXECUTE FUNCTION ledger_event_append_only();
+    """,
+    """
+    CREATE TRIGGER ledger_event_no_delete
+        BEFORE DELETE ON ledger_event
+        FOR EACH ROW EXECUTE FUNCTION ledger_event_append_only();
+    """,
+]
 
-CREATE TRIGGER ledger_event_no_update
-    BEFORE UPDATE ON ledger_event
-    FOR EACH ROW EXECUTE FUNCTION ledger_event_append_only();
-
-CREATE TRIGGER ledger_event_no_delete
-    BEFORE DELETE ON ledger_event
-    FOR EACH ROW EXECUTE FUNCTION ledger_event_append_only();
-"""
-
-POSTGRES_REVERSE = """
-DROP TRIGGER IF EXISTS ledger_event_no_update ON ledger_event;
-DROP TRIGGER IF EXISTS ledger_event_no_delete ON ledger_event;
-DROP FUNCTION IF EXISTS ledger_event_append_only();
-"""
+POSTGRES_REVERSE = [
+    "DROP TRIGGER IF EXISTS ledger_event_no_update ON ledger_event;",
+    "DROP TRIGGER IF EXISTS ledger_event_no_delete ON ledger_event;",
+    "DROP FUNCTION IF EXISTS ledger_event_append_only();",
+]
 
 SQLITE_FORWARD = [
     """
@@ -61,13 +68,16 @@ SQLITE_REVERSE = [
 
 def _run(statements, schema_editor):
     for statement in statements:
-        schema_editor.execute(statement)
+        # params=None tells Django to skip parameter interpolation. Without it
+        # psycopg reads the '%' in the trigger's RAISE EXCEPTION format string
+        # as a placeholder and refuses the statement.
+        schema_editor.execute(statement, params=None)
 
 
 def forwards(apps, schema_editor):
     vendor = schema_editor.connection.vendor
     if vendor == "postgresql":
-        _run([POSTGRES_FORWARD], schema_editor)
+        _run(POSTGRES_FORWARD, schema_editor)
     elif vendor == "sqlite":
         _run(SQLITE_FORWARD, schema_editor)
     # Any other backend is unsupported for the ledger; the Python guards still
@@ -77,7 +87,7 @@ def forwards(apps, schema_editor):
 def backwards(apps, schema_editor):
     vendor = schema_editor.connection.vendor
     if vendor == "postgresql":
-        _run([POSTGRES_REVERSE], schema_editor)
+        _run(POSTGRES_REVERSE, schema_editor)
     elif vendor == "sqlite":
         _run(SQLITE_REVERSE, schema_editor)
 
