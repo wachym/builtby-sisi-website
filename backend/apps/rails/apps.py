@@ -1,0 +1,8 @@
+from django.apps import AppConfig
+
+
+class RailsConfig(AppConfig):
+    default_auto_field = "django.db.models.BigAutoField"
+    name = "apps.rails"
+    label = "rails"
+    verbose_name = "Rails"

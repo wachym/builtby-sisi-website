@@ -1,0 +1,17 @@
+# Sisi OS backend — runtime dependencies.
+# Pinned to the versions verified working together on Python 3.12.
+# Install:  python -m pip install -r requirements.txt
+
+Django==6.1.1
+django-ninja==1.7.0
+django-ninja-extra==0.31.7
+django-cors-headers==4.9.0
+
+# Ed25519 signing for ledger events and actor keys.
+cryptography==50.0.1
+
+# PostgreSQL driver (production and Docker Compose development).
+psycopg[binary]==3.3.5
+
+# ASGI server — async controllers and the telemetry socket need it.
+uvicorn[standard]==0.52.4
