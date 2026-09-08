@@ -43,3 +43,6 @@ next-env.d.ts
 # Serwist
 public/sw*
 public/swe-worker*
+
+# keep the environment contract in the repo
+!.env.example
